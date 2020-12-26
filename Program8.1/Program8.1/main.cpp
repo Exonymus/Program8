@@ -157,9 +157,9 @@ void DB_Sort(Customer* database, int id)
         {
             temp = database[i].discount;
             previd = i - 1;
-            while(previd >= 0 && database[previd].discount > temp) // пока индекс не равен 0 и предыдущий элемент массива больше текущего
+            while(previd >= 0 && database[previd].discount > temp)
             {
-                database[previd+1].discount = database[previd].discount; // перестановка элементов массива
+                database[previd+1].discount = database[previd].discount; 
                 database[previd].discount = temp;
                 previd--;
             }
