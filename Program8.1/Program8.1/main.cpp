@@ -31,6 +31,7 @@ int main()
     Customer* DataBase = 0;
     int newcust = 1;
     
+//    Заполнение клиентской базы
     do
     {
         DataBase = AddStruct(DataBase, id);
@@ -40,6 +41,7 @@ int main()
         scanf("%d", &newcust);
     } while (newcust != 0);
     
+//    Работа с фукциями клиентской базы
     int action;
     do
     {
@@ -95,7 +97,7 @@ Customer* AddStruct(Customer* database, int id)
     return database;
 }
 
-
+//    Ввод данных клиентской базы
 void DB_Fill(Customer* database, int id)
 {
     database[id].id = id;
@@ -112,6 +114,7 @@ void DB_Fill(Customer* database, int id)
     scanf("%f", &database[id].discount);
 }
 
+//  Вывод данных базы клиентов
 void DB_Show(Customer* database, int id)
 {
     printf("\nID клиента: %d\n", database[id].id);
@@ -123,11 +126,13 @@ void DB_Show(Customer* database, int id)
     printf("\n<----------------------------------------------->\n\n");
 }
 
+//  Изменение базы клиентов
 void DB_Edit(Customer* database, int id)
 {
     int edit;
     printf("Введите номер поля для изменения (1 - ФИО, 2 - Адрес, 3 - Объем скидки): ");
     scanf("%d", &edit);
+//  Выбор поля для изменения
     switch (edit)
     {
         case 1:
@@ -149,6 +154,7 @@ void DB_Edit(Customer* database, int id)
     }
 }
 
+//  Сортировка клиентской базы вставкой по возрастанию
 void DB_Sort(Customer* database, int id)
 {
     float temp;
@@ -157,6 +163,7 @@ void DB_Sort(Customer* database, int id)
         {
             temp = database[i].discount;
             previd = i - 1;
+//            Перестановка компонентов клиентской базы
             while(previd >= 0 && database[previd].discount > temp)
             {
                 database[previd+1].discount = database[previd].discount; 
