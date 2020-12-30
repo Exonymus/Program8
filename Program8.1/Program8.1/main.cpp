@@ -58,7 +58,7 @@ int main()
             
             case 2:
                 int edit;
-                printf("Введите номер клиента: ");
+                printf("Введите номер(ID) клиента: ");
                 scanf("%d", &edit);
             
                 if (id < edit) printf("Данного клиента не существует!");
@@ -77,6 +77,8 @@ int main()
             case 5:
                 for (int i = (id - 1); DataBase[i].discount >= 5; i--)
                     if (DataBase[i].discount == 5) DB_Show(DataBase, i);
+                break;
+            default:
                 break;
         }
     } while (action != 0);
