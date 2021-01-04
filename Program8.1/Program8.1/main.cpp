@@ -159,17 +159,17 @@ void DB_Edit(Customer* database, int id)
 //  Сортировка клиентской базы вставкой по возрастанию
 void DB_Sort(Customer* database, int id)
 {
-    float temp;
+    Customer* temp = new Customer[1];
     int previd;
         for (int i = 1; i < id; i++)
         {
-            temp = database[i].discount;
+            temp[0] = database[i];
             previd = i - 1;
 //            Перестановка компонентов клиентской базы
-            while(previd >= 0 && database[previd].discount > temp)
+            while(previd >= 0 && database[previd].discount > temp[0].discount)
             {
-                database[previd+1].discount = database[previd].discount; 
-                database[previd].discount = temp;
+                database[previd+1] = database[previd];
+                database[previd] = temp[0];
                 previd--;
             }
         }
